@@ -8,4 +8,5 @@ module.exports = {
   useTabs: false,
   singleQuote: false,
   bracketSpacing: true,
+  plugins: ["prettier-plugin-tailwindcss"],
 };

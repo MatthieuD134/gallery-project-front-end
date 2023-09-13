@@ -11,4 +11,8 @@ module.exports = {
   // this will Format MarkDown and JSON
   "**/*.(md|json)": (filenames) =>
     `yarn prettier --write ${filenames.join(" ")}`,
+
+  // this will lint and format CSS, SCSS
+  "**/*.(css|scss|tailwind.css)": (filenames) =>
+    `yarn stylelint --fix ${filenames.join(" ")}`,
 };
