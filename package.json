@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "./node_modules/.bin/next dev",
-    "build": "./node_modules/.bin/next build",
+    "build": "./node_modules/.bin/prettier --check . && ./node_modules/.bin/stylelint \"./src/**/*.{css,scss}\" && ./node_modules/.bin/next build",
     "start": "./node_modules/.bin/next start",
     "lint": "./node_modules/.bin/next lint",
     "lint:fix": "./node_modules/.bin/next lint --fix"

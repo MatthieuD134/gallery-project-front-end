@@ -7,5 +7,12 @@ module.exports = {
   ],
   rules: {
     "selector-class-pattern": null,
+    "at-rule-no-unknown": null,
+    "scss/at-rule-no-unknown": [
+      true,
+      {
+        ignoreAtRules: ["tailwind"],
+      },
+    ],
   },
 };
