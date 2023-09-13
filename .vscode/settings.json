@@ -1,0 +1,8 @@
+{
+  "stylelint.configFile": ".stylelintrc.js",
+  "prettier.configPath": ".prettierrc.js",
+  "editor.formatOnSave": true,
+  "files.associations": {
+    "*.css": "tailwindcss"
+  }
+}
