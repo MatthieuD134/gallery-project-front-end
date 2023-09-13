@@ -8,5 +8,5 @@ export default function Home() {
         <Button>Test</Button>
       </section>
     </main>
-  )
+  );
 }
