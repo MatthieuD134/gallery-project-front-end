@@ -23,4 +23,4 @@ jobs:
         run: yarn install
 
       - name: Run Linters
-        run: yarn lint
+        run: yarn lint:all

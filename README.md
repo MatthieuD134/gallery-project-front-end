@@ -1,34 +1,75 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Next.js Starter with TailwindCSS and Shadcn Component Library
+
+This repository serves as a starter template for kickstarting your Next.js projects with TailwindCSS and Shadcn component library. It also comes with a set of development tools such as ESLint, Prettier, Stylelint, Husky, Lint-Staged, and a GitHub Action for linting.
+
+![Next.js Logo](https://nextjs.org/static/favicon/favicon.ico)
+
+![TailwindCSS Logo](https://tailwindcss.com/favicons/favicon.ico)
+
+![Shadcn Component Library Logo](https://ui.shadcn.com/favicon.ico)
+
+## Features
+
+- **Next.js:** Utilize the power of Next.js for server-rendered React applications.
+- **TailwindCSS:** Easily create beautiful, responsive designs with utility-first CSS.
+- **Shadcn Component Library:** Enhance your UI with a collection of customizable components.
+- **Development Tools:** Maintain code quality and style with ESLint, Prettier, Stylelint, Husky, and Lint-Staged.
+- **GitHub Action:** Automatically check code quality with a GitHub Action workflow.
 
 ## Getting Started
 
-First, run the development server:
+Follow these steps to get started with your Next.js project:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+1.  Clone this repository to your local machine.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+    ```bash
+    git clone https://github.com/your-username/next-starter.git
+    ```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+2.  Navigate to the project directory.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+    ```bash
+    cd next-starter
+    ```
 
-## Learn More
+3.  Install project dependencies.
 
-To learn more about Next.js, take a look at the following resources:
+    ```bash
+    npm install
+    ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4.  Start the development server.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+    ```bash
+    npm run dev
+    ```
 
-## Deploy on Vercel
+5.  Open your browser and visit [http://localhost:3000](http://localhost:3000) to see your Next.js app in action.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Scripts
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This project includes the following scripts in the `package.json` file:
+
+- `dev`: Start the Next.js development server.
+- `build`: Check code formatting, run Stylelint, and build the Next.js application.
+- `start`: Start the Next.js production server.
+- `lint`: Run ESLint to check for code quality issues.
+- `lint:fix`: Automatically fix ESLint issues where possible.
+- `lint:prettier`: Check code formatting using Prettier.
+- `lint:stylelint`: Run Stylelint to check stylesheets.
+- `lint:all`: Run all linting tasks (Prettier, Stylelint, and ESLint).
+- `analyze`: Analyze the bundle size of your Next.js application.
+
+## Dependencies
+
+- Next.js
+- TailwindCSS
+- Shadcn Component Library
+- TypeScript
+- Other dependencies and development tools as specified in `package.json`.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
