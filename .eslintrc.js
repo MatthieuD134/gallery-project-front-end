@@ -25,48 +25,29 @@ module.exports = {
     },
   },
 
-  plugins: ["@typescript-eslint"],
+  plugins: ["@typescript-eslint", "simple-import-sort"],
   extends: [
     "next/core-web-vitals",
     "plugin:@typescript-eslint/recommended",
     "prettier",
-    "plugin:jsx-a11y/recommended",
     "plugin:prettier/recommended",
     "plugin:sonarjs/recommended",
     "plugin:security/recommended",
-    "plugin:react-hooks/recommended",
   ],
 
   rules: {
     "@typescript-eslint/no-unused-vars": "error",
     "@typescript-eslint/no-explicit-any": "error",
-    "react/react-in-jsx-scope": "off",
-    "react/jsx-filename-extension": [
-      1,
-      {
-        extensions: [".ts", ".tsx", ".js", ".jsx"],
-      },
-    ],
-    "react/jsx-props-no-spreading": "off",
-    "import/extensions": [
-      "error",
-      "ignorePackages",
-      {
-        js: "never",
-        jsx: "never",
-        ts: "never",
-        tsx: "never",
-      },
-    ],
-    "jsx-a11y/anchor-is-valid": [
-      "error",
-      {
-        components: ["Link"],
-        specialLink: ["hrefLeft", "hrefRight"],
-        aspects: ["invalidHref", "preferButton"],
-      },
-    ],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
+    "import/first": "error",
+    "import/newline-after-import": "error",
+    "import/no-duplicates": "error",
     "no-nested-ternary": "off",
     "import/prefer-default-export": "off",
+    "security/detect-object-injection": "off",
+    "sonarjs/no-duplicate-string": "off",
   },
 };

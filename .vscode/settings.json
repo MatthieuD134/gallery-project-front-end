@@ -1,8 +1,23 @@
 {
-  "stylelint.configFile": ".stylelintrc.js",
-  "prettier.configPath": ".prettierrc.js",
   "editor.formatOnSave": true,
-  "files.associations": {
-    "*.css": "tailwindcss"
-  }
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true
+  },
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  "stylelint.validate": ["css", "scss"],
+  "stylelint.configFile": ".stylelintrc.json",
+  "prettier.configPath": ".prettierrc.json",
+  "stylelint.packageManager": "yarn",
+  "cSpell.words": [
+    "tailwindcss",
+    "shadcn",
+    "stylelint",
+    "nextjs",
+    "lucide",
+    "clsx",
+    "sonarjs"
+  ]
 }
