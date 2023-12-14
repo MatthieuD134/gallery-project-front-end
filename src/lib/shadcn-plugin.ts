@@ -6,15 +6,17 @@ export const shadcnPlugin = plugin(
     addBase({
       ":root": {
         "--background": "0 0% 100%",
-        "--foreground": "222.2 84% 4.9%", // eslint-disable-line sonarjs/no-duplicate-string
+        "--foreground": "210 39% 9%", // eslint-disable-line sonarjs/no-duplicate-string
         "--card": "0 0% 100%",
-        "--card-foreground": "222.2 84% 4.9%",
+        "--card-foreground": "210 39% 9%",
         "--popover": "0 0% 100%",
-        "--popover-foreground": "222.2 84% 4.9%",
-        "--primary": "222.2 47.4% 11.2%", // eslint-disable-line sonarjs/no-duplicate-string
-        "--primary-foreground": "210 40% 98%", // eslint-disable-line sonarjs/no-duplicate-string
-        "--secondary": "210 40% 96.1%", // eslint-disable-line sonarjs/no-duplicate-string
-        "--secondary-foreground": "222.2 47.4% 11.2%",
+        "--popover-foreground": "210 39% 9%",
+        "--primary": "210 39% 9%", // eslint-disable-line sonarjs/no-duplicate-string
+        "--primary-foreground": "0 0% 100%", // eslint-disable-line sonarjs/no-duplicate-string
+        "--secondary": "40 87% 82%", // eslint-disable-line sonarjs/no-duplicate-string
+        "--secondary-foreground": "210 39% 9%", // eslint-disable-line sonarjs/no-duplicate-string
+        "--tertiary": "359 54% 43%",
+        "--tertiary-foreground": "0 0% 100%",
         "--muted": "210 40% 96.1%",
         "--muted-foreground": "215.4 16.3% 46.9%",
         "--accent": "210 40% 96.1%",
@@ -27,25 +29,28 @@ export const shadcnPlugin = plugin(
         "--radius": "0.5rem",
       },
       ".dark": {
-        "--background": "222.2 84% 4.9%",
-        "--foreground": "210 40% 98%",
-        "--card": "222.2 84% 4.9%",
-        "--card-foreground": "210 40% 98%",
-        "--popover": "222.2 84% 4.9%",
-        "--popover-foreground": "210 40% 98%",
-        "--primary": "210 40% 98%",
-        "--primary-foreground": "222.2 47.4% 11.2%",
-        "--secondary": "217.2 32.6% 17.5%", // eslint-disable-line sonarjs/no-duplicate-string
-        "--secondary-foreground": "210 40% 98%",
-        "--muted": "217.2 32.6% 17.5%",
-        "--muted-foreground": "215 20.2% 65.1%",
-        "--accent": "217.2 32.6% 17.5%",
-        "--accent-foreground": "210 40% 98%",
-        "--destructive": "0 62.8% 30.6%",
+        "--background": "0 0% 100%",
+        "--foreground": "210 39% 9%", // eslint-disable-line sonarjs/no-duplicate-string
+        "--card": "0 0% 100%",
+        "--card-foreground": "210 39% 9%",
+        "--popover": "0 0% 100%",
+        "--popover-foreground": "210 39% 9%",
+        "--primary": "210 39% 9%", // eslint-disable-line sonarjs/no-duplicate-string
+        "--primary-foreground": "0 0% 100%", // eslint-disable-line sonarjs/no-duplicate-string
+        "--secondary": "40 87% 82%", // eslint-disable-line sonarjs/no-duplicate-string
+        "--secondary-foreground": "210 39% 9%", // eslint-disable-line sonarjs/no-duplicate-string
+        "--tertiary": "359 54% 43%",
+        "--tertiary-foreground": "0 0% 100%",
+        "--muted": "210 40% 96.1%",
+        "--muted-foreground": "215.4 16.3% 46.9%",
+        "--accent": "210 40% 96.1%",
+        "--accent-foreground": "222.2 47.4% 11.2%",
+        "--destructive": "0 84.2% 60.2%",
         "--destructive-foreground": "210 40% 98%",
-        "--border": "217.2 32.6% 17.5%",
-        "--input": "217.2 32.6% 17.5%",
-        "--ring": "212.7 26.8% 83.9%",
+        "--border": "214.3 31.8% 91.4%",
+        "--input": "214.3 31.8% 91.4%",
+        "--ring": "222.2 84% 4.9%",
+        "--radius": "0.5rem",
       },
     });
 
@@ -83,6 +88,10 @@ export const shadcnPlugin = plugin(
           secondary: {
             DEFAULT: "hsl(var(--secondary))",
             foreground: "hsl(var(--secondary-foreground))",
+          },
+          tertiary: {
+            DEFAULT: "hsl(var(--tertiary))",
+            foreground: "hsl(var(--tertiary-foreground))",
           },
           destructive: {
             DEFAULT: "hsl(var(--destructive))",
