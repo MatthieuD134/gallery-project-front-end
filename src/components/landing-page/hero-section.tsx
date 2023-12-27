@@ -126,12 +126,12 @@ export default function HeroSection() {
       id="hero"
       className="relative min-h-[100svh] bg-primary text-primary-foreground"
     >
-      <div className="flex min-h-[100svh] w-full flex-col justify-end">
+      <div className="flex min-h-[100svh] w-full flex-col justify-end pb-4">
         <div className="mx-auto flex w-full max-w-3xl flex-col p-2">
-          <div className="bg-primary/50 p-2 text-primary-foreground backdrop-blur-lg">
+          <div className="bg-primary/50 p-4 text-primary-foreground backdrop-blur-lg">
             this is {currentStep.id}
           </div>
-          <div className="grid w-full grid-cols-1 grid-rows-3 gap-0 md:grid-cols-2 md:grid-rows-2">
+          <div className="grid w-full grid-cols-1 grid-rows-3 gap-4 md:grid-cols-2 md:grid-rows-2">
             {currentStep.nextSteps.map((value, index) => {
               const nextStep = allSteps.find(
                 (step) => step.id === value.stepId,
@@ -141,7 +141,7 @@ export default function HeroSection() {
                   key={value.stepId}
                   variant="card"
                   onClick={() => ChangeCurrentStep(nextStep)}
-                  className="col-span-1 m-4"
+                  className="col-span-1 mx-2 md:mx-0"
                   invertBubbleTriangle={index % 2 !== 0}
                 >
                   {value.text}
