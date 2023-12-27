@@ -20,6 +20,7 @@ const buttonVariants = cva(
         tertiary: "bg-tertiary text-tertiary-foreground hover:opacity-80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
+        card: "bg-card text-card-foreground hover: opacity-80",
       },
       size: {
         default: "h-10 rounded-2xl px-4 py-2 ",
@@ -45,6 +46,7 @@ const bubbleTriangleVariants = cva("", {
       tertiary: "text-tertiary",
       ghost: "text-primary",
       link: "text-primary",
+      card: "text-card",
     },
   },
   defaultVariants: {
@@ -100,9 +102,9 @@ const BubbleButton = React.forwardRef<
             className={cn(
               "absolute -bottom-3",
               bubbleTriangleVariants({ variant }),
-              { "-left-4": !invertBubbleTriangle },
+              { "-left-4 scale-[.6]": !invertBubbleTriangle },
               {
-                "-right-4 scale-x-[-1]": invertBubbleTriangle,
+                "-right-4 scale-x-[-.6] scale-y-[.6]": invertBubbleTriangle,
               },
             )}
           />

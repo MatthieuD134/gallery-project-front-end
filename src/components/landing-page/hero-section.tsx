@@ -122,29 +122,45 @@ export default function HeroSection() {
   };
 
   return (
-    <section id="hero">
-      <div>this is {currentStep.id}</div>
-      {currentStep.nextSteps.map((value) => {
-        const nextStep = allSteps.find((step) => step.id === value.stepId);
-        return nextStep ? (
-          <BubbleButton
-            key={value.stepId}
-            variant="secondary"
-            onClick={() => ChangeCurrentStep(nextStep)}
-            className="m-4"
-          >
-            {value.text}
-          </BubbleButton>
-        ) : null;
-      })}
-      {previousStep && (
-        <Button
-          variant="tertiary"
-          onClick={() => ChangeCurrentStep(previousStep)}
-        >
-          Back
-        </Button>
-      )}
+    <section
+      id="hero"
+      className="relative min-h-[100svh] bg-primary text-primary-foreground"
+    >
+      <div className="flex min-h-[100svh] w-full flex-col justify-end">
+        <div className="mx-auto flex w-full max-w-3xl flex-col p-2">
+          <div className="bg-primary/50 p-2 text-primary-foreground backdrop-blur-lg">
+            this is {currentStep.id}
+          </div>
+          <div className="grid w-full grid-cols-1 grid-rows-3 gap-0 md:grid-cols-2 md:grid-rows-2">
+            {currentStep.nextSteps.map((value, index) => {
+              const nextStep = allSteps.find(
+                (step) => step.id === value.stepId,
+              );
+              return nextStep ? (
+                <BubbleButton
+                  key={value.stepId}
+                  variant="card"
+                  onClick={() => ChangeCurrentStep(nextStep)}
+                  className="col-span-1 m-4"
+                  invertBubbleTriangle={index % 2 !== 0}
+                >
+                  {value.text}
+                </BubbleButton>
+              ) : null;
+            })}
+            {previousStep && (
+              <div className="col-span-1 flex w-full justify-center md:col-span-2">
+                <Button
+                  variant="tertiary"
+                  onClick={() => ChangeCurrentStep(previousStep)}
+                >
+                  Back
+                </Button>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
     </section>
   );
 }
