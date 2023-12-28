@@ -3,27 +3,27 @@ import { BubbleButton } from "../ui/button";
 export default function BoardGames() {
   return (
     <section id="board-games" className="bg-primary text-primary-foreground">
-      <div className="flex flex-col py-20 md:flex-row">
-        <div></div>
-        <div className="flex flex-col p-2">
-          <h2 className="text-balance text-5xl uppercase">
-            Présentation des comics
-          </h2>
-          <p className="my-8 text-lg">
-            Découvrez nos Comics captivants ! Plongez dans des récits épiques,
-            des personnages saisissants et des aventures incroyables qui vous
-            tiendront en haleine à chaque page. Nos bandes dessinées sont un
-            mélange passionnant d&apos;histoire alternative et de super-héros,
-            qui vous emmèneront dans un voyage à travers le temps et
-            l&apos;espace. Explorez des mondes fantastiques, des batailles
-            épiques et des enjeux palpitants. Nos personnages sont vibrants et
-            complexes, et vous vous attacherez à eux dès les premières pages.
-            Rejoignez-nous dans cette aventure inoubliable !
-          </p>
-          <BubbleButton className="w-fit uppercase" variant="secondary">
-            Voir le projet!
-          </BubbleButton>
+      <div className="grid grid-cols-1 py-40 md:grid-cols-12">
+        <div className="flex justify-end md:col-span-7">
+          <div className="flex max-w-3xl flex-col p-2 ">
+            <h2 className="text-balance text-5xl uppercase">Jeux de société</h2>
+            <p className="my-8 text-lg">
+              Plongez dans l&apos;univers des Comics avec nos jeux de société
+              passionnants ! Ces jeux vous transporteront dans le même univers
+              que nos bandes dessinées, vous permettant de vivre des aventures
+              uniques avec vos amis et votre famille.
+              <br /> Chaque jeu est conçu avec soin et comporte des mécanismes
+              de jeu captivants qui vous tiendront en haleine pendant des
+              heures. Préparez-vous à affronter des défis, à prendre des
+              décisions stratégiques et à vivre des moments de pure excitation.
+              Découvrez nos jeux de société dès maintenant !
+            </p>
+            <BubbleButton className="w-fit uppercase" variant="secondary">
+              Voir le projet!
+            </BubbleButton>
+          </div>
         </div>
+        <div className="col-span-5"></div>
       </div>
     </section>
   );
