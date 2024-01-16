@@ -11,6 +11,7 @@
   "stylelint.configFile": ".stylelintrc.json",
   "prettier.configPath": ".prettierrc.json",
   "stylelint.packageManager": "yarn",
+  "cSpell.language": "en,fr",
   "cSpell.words": [
     "tailwindcss",
     "shadcn",
