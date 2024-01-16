@@ -7,9 +7,9 @@ export default function Artist() {
   return (
     <section id="artist">
       <div className="relative h-80 bg-tertiary">
-        <div className="bg-transition-paint-white absolute bottom-0 left-0 right-0 top-0 bg-contain bg-left-bottom bg-repeat-x" />
+        <div className="absolute bottom-0 left-0 right-0 top-0 bg-transition-paint-white bg-contain bg-left-bottom bg-repeat-x" />
       </div>
-      <div className="grid grid-cols-1 items-center bg-background py-0 text-foreground md:grid-cols-12">
+      <div className="grid grid-cols-1 items-center bg-background text-foreground md:grid-cols-12 md:py-20">
         <div className="flex justify-start md:col-span-5 md:justify-end">
           <div className="max-w-xl ">
             <Image src={artistIllustration} alt="illustration of the artist" />
@@ -47,7 +47,7 @@ export default function Artist() {
         </div>
       </div>
       <div className="relative h-80 bg-primary">
-        <div className="bg-transition-paint-white-inverted absolute bottom-0 left-0 right-0 top-0 bg-contain bg-left-top bg-repeat-x" />
+        <div className="absolute bottom-0 left-0 right-0 top-0 bg-transition-paint-white-inverted bg-contain bg-left-top bg-repeat-x" />
       </div>
     </section>
   );

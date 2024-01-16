@@ -1,10 +1,17 @@
+import comicsIllustration from "@public/images/about-comics.png";
+import Image from "next/image";
+
 import { BubbleButton } from "../ui/button";
 
 export default function Comics() {
   return (
-    <section id="comics" className="bg-background text-foreground">
-      <div className="grid grid-cols-1  py-40 md:grid-cols-12">
-        <div className="md:col-span-5"></div>
+    <section id="comics">
+      <div className="grid grid-cols-1 items-center bg-background text-foreground md:grid-cols-12 md:pt-20">
+        <div className="flex justify-start md:col-span-5 md:justify-end">
+          <div className="max-w-xl ">
+            <Image src={comicsIllustration} alt="illustration of the comic" />
+          </div>
+        </div>
         <div className="flex justify-start md:col-span-7">
           <div className="max-w-3xl p-2">
             <h2 className="text-balance text-5xl uppercase">
@@ -24,7 +31,7 @@ export default function Comics() {
             </p>
             <div className="flex justify-end">
               <BubbleButton
-                className="w-fit uppercase"
+                className="mx-4 w-fit uppercase"
                 variant="tertiary"
                 invertBubbleTriangle
               >

@@ -24,7 +24,7 @@ const faqContent: {
 
 export default function FAQ() {
   return (
-    <section id="faq" className="bg-primary py-40 text-primary-foreground">
+    <section id="faq" className="bg-primary text-primary-foreground md:py-20">
       <div className="mx-auto max-w-3xl px-2">
         <h2 className="w-full text-center text-5xl uppercase">F.A.Q</h2>
         <Accordion type="single" collapsible>
