@@ -133,6 +133,27 @@ export const shadcnPlugin = plugin(
           "accordion-down": "accordion-down 0.2s ease-out",
           "accordion-up": "accordion-up 0.2s ease-out",
         },
+        backgroundImage: {
+          "transition-ink-black": "url('/images/transition-ink-black.png')",
+          "transition-ink-white": "url('/images/transition-ink-white.png')",
+          "transition-paint-black": "url('/images/transition-paint-black.png')",
+          "transition-paint-white": "url('/images/transition-paint-white.png')",
+          "transition-spray-black": "url('/images/transition-spray-black.png')",
+          "transition-spray-white": "url('/images/transition-spray-white.png')",
+
+          "transition-ink-black-inverted":
+            "url('/images/transition-ink-black-inverted.png')",
+          "transition-ink-white-inverted":
+            "url('/images/transition-ink-white-inverted.png')",
+          "transition-paint-black-inverted":
+            "url('/images/transition-paint-black-inverted.png')",
+          "transition-paint-white-inverted":
+            "url('/images/transition-paint-white-inverted.png')",
+          "transition-spray-black-inverted":
+            "url('/images/transition-spray-black-inverted.png')",
+          "transition-spray-white-inverted":
+            "url('/images/transition-spray-white-inverted.png')",
+        },
       },
     },
   },
