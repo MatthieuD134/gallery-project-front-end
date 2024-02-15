@@ -3,7 +3,8 @@ import "@/styles/globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
-import { ThemeProvider } from "@/components/theme-provider";
+import SharedLayout from "@/components/layout";
+import Providers from "@/providers/providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,14 +21,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem={false}
-          forcedTheme="light"
-        >
-          {children}
-        </ThemeProvider>
+        <Providers>
+          <SharedLayout>{children}</SharedLayout>
+        </Providers>
       </body>
     </html>
   );

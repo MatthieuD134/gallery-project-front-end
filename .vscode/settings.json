@@ -13,12 +13,14 @@
   "stylelint.packageManager": "yarn",
   "cSpell.language": "en,fr",
   "cSpell.words": [
-    "tailwindcss",
-    "shadcn",
-    "stylelint",
-    "nextjs",
-    "lucide",
     "clsx",
-    "sonarjs"
+    "lucide",
+    "nextjs",
+    "sepolia",
+    "shadcn",
+    "sonarjs",
+    "stylelint",
+    "tailwindcss",
+    "wagmi"
   ]
 }
