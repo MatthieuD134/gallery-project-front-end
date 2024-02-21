@@ -11,13 +11,15 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:opacity-80",
+        default:
+          "bg-primary text-primary-foreground hover:bg-primary-accent focus:bg-primary-accent",
         destructive:
           "bg-destructive text-destructive-foreground hover:opacity-80",
-        outline:
-          "border border-input bg-background hover:bg-accent hover:opacity-80",
-        secondary: "bg-secondary text-secondary-foreground hover:opacity-80",
-        tertiary: "bg-tertiary text-tertiary-foreground hover:opacity-80",
+        outline: "border border-input bg-background hover:bg-accent",
+        secondary:
+          "bg-secondary text-secondary-foreground hover:bg-secondary-accent focus:bg-secondary-accent",
+        tertiary:
+          "bg-tertiary text-tertiary-foreground hover:bg-tertiary-accent focus:bg-tertiary-accent",
         ghost: "hover:text-accent-foreground",
         link: "text-primary-foreground underline-offset-4 hover:underline",
         card: "bg-card text-card-foreground hover: opacity-80",
@@ -39,11 +41,14 @@ const buttonVariants = cva(
 const bubbleTriangleVariants = cva("", {
   variants: {
     variant: {
-      default: "text-primary",
+      default:
+        "text-primary group-hover:text-primary-accent group-focus:text-primary-accent",
       destructive: "text-destructive",
       outline: "text-background",
-      secondary: "text-secondary",
-      tertiary: "text-tertiary",
+      secondary:
+        "text-secondary group-hover:text-secondary-accent group-focus:text-secondary-accent",
+      tertiary:
+        "text-tertiary group-hover:text-tertiary-accent, group-focus:text-tertiary-accent",
       ghost: "text-primary",
       link: "text-primary",
       card: "text-card",
@@ -92,7 +97,7 @@ const BubbleButton = React.forwardRef<
     return (
       <Button
         ref={ref}
-        className={cn({ relative: !hideBubbleTriangle }, className)}
+        className={cn({ relative: !hideBubbleTriangle }, "group", className)}
         variant={variant}
         {...props}
       >

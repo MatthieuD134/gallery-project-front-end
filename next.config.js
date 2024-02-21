@@ -1,5 +1,10 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+  webpack: (config) => {
+    config.externals.push("pino-pretty", "lokijs", "encoding");
+    return config;
+  },
+};
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const withBundleAnalyzer = require("@next/bundle-analyzer")({
