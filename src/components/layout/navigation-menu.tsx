@@ -1,8 +1,6 @@
-import Link from "next/link";
-
 import HamburgerMenu from "../icons/hamburger-menu";
 import ConnectButton from "../shared/connect-button";
-import { Button } from "../ui/button";
+import { Button, LinkButton } from "../ui/button";
 import {
   Drawer,
   DrawerClose,
@@ -12,7 +10,7 @@ import {
 
 const NavigationMenu = () => {
   return (
-    <nav className="sticky right-2 top-2 z-20 float-right flex flex-row justify-end gap-2">
+    <nav className="sticky top-2 z-20 float-left flex w-full flex-row justify-end gap-2">
       <ConnectButton />
       <Drawer>
         <DrawerTrigger asChild>
@@ -20,28 +18,65 @@ const NavigationMenu = () => {
             <HamburgerMenu />
           </Button>
         </DrawerTrigger>
-        <DrawerContent className="rounded-none border-none bg-primary text-primary-foreground">
+        <DrawerContent
+          className="rounded-none border-none bg-primary text-primary-foreground"
+          showTransition
+        >
           <nav className="mx-auto mt-4 flex min-h-[50svh] flex-col justify-center gap-8 align-middle">
-            <DrawerClose>
-              <Button variant="link" className="text-2xl uppercase" asChild>
-                <Link href="#hero">L&apos;Histoire</Link>
-              </Button>
+            <DrawerClose asChild>
+              <LinkButton
+                variant="link"
+                className="text-2xl uppercase"
+                href="#hero"
+              >
+                L&apos;Histoire
+              </LinkButton>
             </DrawerClose>
-            <Button variant="link" className="text-2xl uppercase" asChild>
-              <Link href="#comics">Les Comics</Link>
-            </Button>
-            <Button variant="link" className="text-2xl uppercase" asChild>
-              <Link href="#board-games">Jeux de Société</Link>
-            </Button>
-            <Button variant="link" className="text-2xl uppercase" asChild>
-              <Link href="#gallery">Galerie NFT</Link>
-            </Button>
-            <Button variant="link" className="text-2xl uppercase" asChild>
-              <Link href="#artist">L&apos;Artiste</Link>
-            </Button>
-            <Button variant="link" className="text-2xl uppercase" asChild>
-              <Link href="#faq">FAQ</Link>
-            </Button>
+            <DrawerClose asChild>
+              <LinkButton
+                variant="link"
+                className="text-2xl uppercase"
+                href="#comics"
+              >
+                Les Comics
+              </LinkButton>
+            </DrawerClose>
+            <DrawerClose asChild>
+              <LinkButton
+                variant="link"
+                className="text-2xl uppercase"
+                href="#board-games"
+              >
+                Jeux de Société
+              </LinkButton>
+            </DrawerClose>
+            <DrawerClose asChild>
+              <LinkButton
+                variant="link"
+                className="text-2xl uppercase"
+                href="#gallery"
+              >
+                Galerie NFT
+              </LinkButton>
+            </DrawerClose>
+            <DrawerClose asChild>
+              <LinkButton
+                href="#artist"
+                variant="link"
+                className="text-2xl uppercase"
+              >
+                L&apos;Artiste
+              </LinkButton>
+            </DrawerClose>
+            <DrawerClose asChild>
+              <LinkButton
+                href="#faq"
+                variant="link"
+                className="text-2xl uppercase"
+              >
+                FAQ
+              </LinkButton>
+            </DrawerClose>
           </nav>
         </DrawerContent>
       </Drawer>

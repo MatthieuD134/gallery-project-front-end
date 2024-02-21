@@ -29,16 +29,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ContextProvider initialState={initialState}>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="light"
-            enableSystem={false}
-            forcedTheme="light"
-          >
-            <SharedLayout>{children}</SharedLayout>
-          </ThemeProvider>
-        </ContextProvider>
+        <div vaul-drawer-wrapper="">
+          <ContextProvider initialState={initialState}>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="light"
+              enableSystem={false}
+              forcedTheme="light"
+            >
+              <SharedLayout>{children}</SharedLayout>
+            </ThemeProvider>
+          </ContextProvider>
+        </div>
       </body>
     </html>
   );

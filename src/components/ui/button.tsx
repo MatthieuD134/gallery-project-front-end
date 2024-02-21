@@ -1,5 +1,6 @@
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
+import Link, { LinkProps } from "next/link";
 import * as React from "react";
 
 import { cn } from "@/lib/utils";
@@ -65,6 +66,13 @@ export interface ButtonProps
   asChild?: boolean;
 }
 
+export interface LinkButtonProps
+  extends LinkProps,
+    VariantProps<typeof buttonVariants> {
+  className?: string;
+  children?: React.ReactNode;
+}
+
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, ...props }, ref) => {
     const Comp = asChild ? Slot : "button";
@@ -78,6 +86,22 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   },
 );
 Button.displayName = "Button";
+
+const LinkButton = ({
+  className,
+  variant,
+  size,
+  href,
+  ...props
+}: LinkButtonProps) => {
+  return (
+    <Link
+      className={cn(buttonVariants({ variant, size, className }))}
+      href={href}
+      {...props}
+    />
+  );
+};
 
 const BubbleButton = React.forwardRef<
   HTMLButtonElement,
@@ -120,4 +144,4 @@ const BubbleButton = React.forwardRef<
 );
 BubbleButton.displayName = "BubbleButton";
 
-export { BubbleButton, Button, buttonVariants };
+export { BubbleButton, Button, buttonVariants, LinkButton };

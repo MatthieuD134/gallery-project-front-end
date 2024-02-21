@@ -186,7 +186,7 @@ export default function HeroSection() {
           </div>
         </div>
       </div>
-      <div className="relative h-80">
+      <div className="relative h-80 bg-background">
         <div className="absolute bottom-0 left-0 right-0 top-0 bg-transition-ink-black-inverted bg-contain bg-left-top bg-repeat-x" />
       </div>
     </section>
