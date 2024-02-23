@@ -1,6 +1,8 @@
 import boardgamesIllustration from "@public/images/about-boardgames.png";
 import Image from "next/image";
 
+import { staatliches } from "@/fonts";
+
 import { BubbleButton } from "../ui/button";
 
 export default function BoardGames() {
@@ -12,7 +14,11 @@ export default function BoardGames() {
       <div className="grid grid-cols-1 items-center bg-primary text-primary-foreground md:grid-cols-12 md:py-20">
         <div className="flex justify-end md:col-span-7">
           <div className="flex max-w-3xl flex-col p-2 ">
-            <h2 className="text-balance text-5xl uppercase">Jeux de société</h2>
+            <h2
+              className={`${staatliches.className} text-balance text-6xl uppercase`}
+            >
+              Jeux de société
+            </h2>
             <p className="my-8 text-lg">
               Plongez dans l&apos;univers des Comics avec nos jeux de société
               passionnants ! Ces jeux vous transporteront dans le même univers
@@ -24,7 +30,10 @@ export default function BoardGames() {
               décisions stratégiques et à vivre des moments de pure excitation.
               Découvrez nos jeux de société dès maintenant !
             </p>
-            <BubbleButton className="mx-4 w-fit uppercase" variant="secondary">
+            <BubbleButton
+              className={`${staatliches.className} mx-4 w-fit p-8 text-2xl uppercase`}
+              variant="secondary"
+            >
               Voir le projet!
             </BubbleButton>
           </div>

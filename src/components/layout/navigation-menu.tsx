@@ -1,3 +1,5 @@
+import { staatliches } from "@/fonts";
+
 import HamburgerMenu from "../icons/hamburger-menu";
 import ConnectButton from "../shared/connect-button";
 import { Button, LinkButton } from "../ui/button";
@@ -22,11 +24,13 @@ const NavigationMenu = () => {
           className="rounded-none border-none bg-primary text-primary-foreground"
           showTransition
         >
-          <nav className="mx-auto mt-4 flex min-h-[50svh] flex-col justify-center gap-8 align-middle">
+          <nav
+            className={`${staatliches.className} mx-auto mt-4 flex min-h-[50svh] flex-col justify-center gap-8 align-middle`}
+          >
             <DrawerClose asChild>
               <LinkButton
                 variant="link"
-                className="text-2xl uppercase"
+                className="text-4xl uppercase"
                 href="#hero"
               >
                 L&apos;Histoire
@@ -35,7 +39,7 @@ const NavigationMenu = () => {
             <DrawerClose asChild>
               <LinkButton
                 variant="link"
-                className="text-2xl uppercase"
+                className="text-4xl uppercase"
                 href="#comics"
               >
                 Les Comics
@@ -44,7 +48,7 @@ const NavigationMenu = () => {
             <DrawerClose asChild>
               <LinkButton
                 variant="link"
-                className="text-2xl uppercase"
+                className="text-4xl uppercase"
                 href="#board-games"
               >
                 Jeux de Société
@@ -53,7 +57,7 @@ const NavigationMenu = () => {
             <DrawerClose asChild>
               <LinkButton
                 variant="link"
-                className="text-2xl uppercase"
+                className="text-4xl uppercase"
                 href="#gallery"
               >
                 Galerie NFT
@@ -63,7 +67,7 @@ const NavigationMenu = () => {
               <LinkButton
                 href="#artist"
                 variant="link"
-                className="text-2xl uppercase"
+                className="text-4xl uppercase"
               >
                 L&apos;Artiste
               </LinkButton>
@@ -72,7 +76,7 @@ const NavigationMenu = () => {
               <LinkButton
                 href="#faq"
                 variant="link"
-                className="text-2xl uppercase"
+                className="text-4xl uppercase"
               >
                 FAQ
               </LinkButton>

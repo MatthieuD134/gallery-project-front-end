@@ -1,3 +1,5 @@
+import { staatliches } from "@/fonts";
+
 import {
   Accordion,
   AccordionContent,
@@ -26,7 +28,11 @@ export default function FAQ() {
   return (
     <section id="faq" className="bg-primary text-primary-foreground md:py-20">
       <div className="mx-auto max-w-3xl px-2">
-        <h2 className="w-full text-center text-5xl uppercase">F.A.Q</h2>
+        <h2
+          className={`${staatliches.className} w-full text-center text-6xl uppercase`}
+        >
+          F.A.Q
+        </h2>
         <Accordion type="single" collapsible>
           {faqContent.map((content) => (
             <AccordionItem
@@ -34,7 +40,9 @@ export default function FAQ() {
               className="w-full"
               value={content.key}
             >
-              <AccordionTrigger className="text-xl uppercase">
+              <AccordionTrigger
+                className={`${staatliches.className} text-2xl uppercase`}
+              >
                 {content.question}
               </AccordionTrigger>
               <AccordionContent>{content.answer}</AccordionContent>

@@ -3,6 +3,8 @@ import heroBackground from "@public/images/hero-background.png";
 import Image from "next/image";
 import { useState } from "react";
 
+import { komika_slim, staatliches } from "@/fonts";
+
 import { BubbleButton, Button } from "../ui/button";
 
 interface Step {
@@ -152,7 +154,9 @@ export default function HeroSection() {
           <div className="absolute bottom-[20svh] left-0 right-0 h-96 bg-transition-ink-black bg-contain bg-left-bottom bg-repeat-x md:bottom-0" />
 
           <div className="mx-auto flex w-full max-w-3xl flex-col p-2">
-            <div className="mb-4 border-2 border-primary bg-primary/50 p-4 text-primary-foreground backdrop-blur-lg">
+            <div
+              className={`${komika_slim.className} mb-4 border-2 border-primary bg-primary/50 p-4 text-primary-foreground backdrop-blur-lg`}
+            >
               {currentStep.text}
             </div>
             <div className="z-10 grid w-full grid-cols-1 grid-rows-3 gap-4 md:grid-cols-2 md:grid-rows-2">
@@ -165,7 +169,7 @@ export default function HeroSection() {
                     key={value.stepId}
                     variant="card"
                     onClick={() => ChangeCurrentStep(nextStep)}
-                    className="col-span-1 mx-2 md:mx-0"
+                    className={`${komika_slim.className} col-span-1 mx-2 md:mx-0`}
                     invertBubbleTriangle={index % 2 !== 0}
                   >
                     {value.text}
@@ -173,7 +177,9 @@ export default function HeroSection() {
                 ) : null;
               })}
               {previousStep && (
-                <div className="col-span-1 flex w-full justify-center md:col-span-2">
+                <div
+                  className={`${staatliches.className} col-span-1 flex w-full justify-center md:col-span-2`}
+                >
                   <Button
                     variant="tertiary"
                     onClick={() => ChangeCurrentStep(previousStep)}

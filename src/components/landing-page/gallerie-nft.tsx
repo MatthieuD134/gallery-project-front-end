@@ -4,6 +4,8 @@ import nftImage3 from "@public/images/nft-illustration-3.png";
 import nftImage4 from "@public/images/nft-illustration-4.png";
 import Image, { StaticImageData } from "next/image";
 
+import { staatliches } from "@/fonts";
+
 import { BubbleButton, Button } from "../ui/button";
 
 interface NftInfo {
@@ -45,7 +47,11 @@ export default function GalleryNFT() {
     <section id="gallery">
       <div className="flex flex-col items-center bg-tertiary px-2 text-tertiary-foreground">
         <div className="flex max-w-4xl flex-col items-center p-2">
-          <h2 className="text-balance text-5xl uppercase">Gallery NFT</h2>
+          <h2
+            className={`${staatliches.className} text-balance text-6xl uppercase`}
+          >
+            Gallery NFT
+          </h2>
           <p className="my-8 text-lg">
             Bienvenue dans notre galerie NFT, où vous pouvez acheter des œuvres
             d&apos;art uniques et rares sous forme de jetons non fongibles. Les
@@ -76,7 +82,9 @@ export default function GalleryNFT() {
                 />
               </span>
               <div className="mb-8 mt-4 flex flex-col items-center gap-4">
-                <h3 className="line-clamp-2 text-xl uppercase">
+                <h3
+                  className={`${staatliches.className} line-clamp-2 text-xl uppercase`}
+                >
                   {nftInfo.name}
                 </h3>
                 <div className="flex w-full flex-row items-center justify-between">
@@ -87,7 +95,7 @@ export default function GalleryNFT() {
                   </span>
                 </div>
                 <Button
-                  className="w-full text-xl uppercase"
+                  className={`${staatliches.className} w-full text-xl uppercase`}
                   variant="secondary"
                 >
                   Acheter
@@ -98,7 +106,7 @@ export default function GalleryNFT() {
         </div>
         <div className="z-10 flex justify-center">
           <BubbleButton
-            className="mx-4 w-fit p-8 text-2xl uppercase"
+            className={`${staatliches.className} mx-4 w-fit p-8 text-2xl uppercase`}
             variant="card"
             invertBubbleTriangle
           >

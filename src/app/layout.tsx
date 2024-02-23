@@ -1,7 +1,6 @@
 import "@/styles/globals.css";
 
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import { headers } from "next/headers";
 import { cookieToInitialState } from "wagmi";
 
@@ -9,8 +8,7 @@ import SharedLayout from "@/components/layout";
 import { ThemeProvider } from "@/components/theme-provider";
 import { wagmiConfig } from "@/config";
 import { ContextProvider } from "@/context";
-
-const inter = Inter({ subsets: ["latin"] });
+import { noto_sans } from "@/fonts";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -28,7 +26,7 @@ export default function RootLayout({
   );
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={noto_sans.className}>
         <div vaul-drawer-wrapper="">
           <ContextProvider initialState={initialState}>
             <ThemeProvider
