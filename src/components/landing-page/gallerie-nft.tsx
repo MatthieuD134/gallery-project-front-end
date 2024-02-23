@@ -2,43 +2,37 @@ import nftImage1 from "@public/images/nft-illustration-1.png";
 import nftImage2 from "@public/images/nft-illustration-2.png";
 import nftImage3 from "@public/images/nft-illustration-3.png";
 import nftImage4 from "@public/images/nft-illustration-4.png";
-import Image, { StaticImageData } from "next/image";
 
 import { staatliches } from "@/fonts";
+import { NftInfo } from "@/interfaces";
 
-import { BubbleButton, Button } from "../ui/button";
-
-interface NftInfo {
-  id: number;
-  image: StaticImageData;
-  name: string;
-  price: number;
-}
+import BuyNftCard from "../nft/buy-nft-card";
+import { BubbleButton } from "../ui/button";
 
 const NFTs: NftInfo[] = [
   {
     id: 1,
     image: nftImage1,
     name: "Couverture de john l'histoire veritable",
-    price: 0,
+    price: 0.04,
   },
   {
     id: 2,
     image: nftImage2,
     name: "Couverture de john l'histoire veritable 2",
-    price: 0,
+    price: 0.05,
   },
   {
     id: 3,
     image: nftImage3,
     name: "Couverture de john l'histoire veritable 3",
-    price: 0,
+    price: 0.04,
   },
   {
     id: 4,
     image: nftImage4,
     name: "Couverture de john l'histoire veritable 4",
-    price: 0,
+    price: 0.03,
   },
 ];
 
@@ -71,37 +65,7 @@ export default function GalleryNFT() {
         </div>
         <div className="my-10 grid max-w-6xl grid-cols-2 items-center gap-8 gap-y-10 md:grid-cols-4">
           {NFTs.map((nftInfo) => (
-            <div
-              key={nftInfo.id}
-              className="relative col-span-1 flex flex-col items-center"
-            >
-              <span className="w-full">
-                <Image
-                  src={nftInfo.image}
-                  alt={`illustration for nft - ${nftInfo.name}`}
-                />
-              </span>
-              <div className="mb-8 mt-4 flex flex-col items-center gap-4">
-                <h3
-                  className={`${staatliches.className} line-clamp-2 text-xl uppercase`}
-                >
-                  {nftInfo.name}
-                </h3>
-                <div className="flex w-full flex-row items-center justify-between">
-                  <span>{nftInfo.price} ETH</span>
-                  <span className="text-sm opacity-50">{nftInfo.price} €</span>
-                  <span className="h-6 w-6 rounded-full border text-center font-semibold">
-                    ?
-                  </span>
-                </div>
-                <Button
-                  className={`${staatliches.className} w-full text-xl uppercase`}
-                  variant="secondary"
-                >
-                  Acheter
-                </Button>
-              </div>
-            </div>
+            <BuyNftCard nftInfo={nftInfo} key={nftInfo.id} />
           ))}
         </div>
         <div className="z-10 flex justify-center">
