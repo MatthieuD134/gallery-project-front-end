@@ -102,6 +102,11 @@ export const shadcnPlugin = plugin(
             accent: "hsl(var(--tertiary-accent))",
             foreground: "hsl(var(--tertiary-foreground))",
           },
+          light: {
+            DEFAULT: "hsl(var(--light))",
+            accent: "hsl(var(--light-accent))",
+            foreground: "hsl(var(--light-foreground))",
+          },
           destructive: {
             DEFAULT: "hsl(var(--destructive))",
             foreground: "hsl(var(--destructive-foreground))",

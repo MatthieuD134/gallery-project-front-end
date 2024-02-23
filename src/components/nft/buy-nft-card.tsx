@@ -6,6 +6,11 @@ import { staatliches } from "@/fonts";
 import { NftInfo } from "@/interfaces";
 
 import { Button } from "../ui/button";
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "../ui/hover-card";
 
 const getEthPriceInEur = async (): Promise<number> => {
   try {
@@ -53,9 +58,19 @@ const BuyNftCard = ({ nftInfo }: { nftInfo: NftInfo }) => {
               : "-"}{" "}
             €
           </span>
-          <span className="h-6 w-6 rounded-full border text-center font-semibold">
-            ?
-          </span>
+          <HoverCard>
+            <HoverCardTrigger asChild>
+              <Button
+                variant="ghost"
+                className="m-0 h-6 w-6 rounded-full border p-0 text-center font-semibold text-tertiary-foreground hover:text-tertiary-foreground"
+              >
+                ?
+              </Button>
+            </HoverCardTrigger>
+            <HoverCardContent className="text-primary">
+              Information sur le prix en ETH
+            </HoverCardContent>
+          </HoverCard>
         </div>
         <Button
           className={`${staatliches.className} w-full text-xl uppercase`}

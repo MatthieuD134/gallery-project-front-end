@@ -167,7 +167,7 @@ export default function HeroSection() {
                 return nextStep ? (
                   <BubbleButton
                     key={value.stepId}
-                    variant="card"
+                    variant="accent"
                     onClick={() => ChangeCurrentStep(nextStep)}
                     className={`${komika_slim.className} col-span-1 mx-2 md:mx-0`}
                     invertBubbleTriangle={index % 2 !== 0}

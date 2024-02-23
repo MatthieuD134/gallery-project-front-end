@@ -71,7 +71,7 @@ export default function GalleryNFT() {
         <div className="z-10 flex justify-center">
           <BubbleButton
             className={`${staatliches.className} mx-4 w-fit p-8 text-2xl uppercase`}
-            variant="card"
+            variant="accent"
             invertBubbleTriangle
           >
             Voir les recompenses

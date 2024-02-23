@@ -5,11 +5,11 @@ import NavigationMenu from "./navigation-menu";
 
 const SharedLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div>
+    <main className="min-h-screen">
       <NavigationMenu />
       {children}
       <Footer />
-    </div>
+    </main>
   );
 };
 

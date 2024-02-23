@@ -23,7 +23,7 @@ const buttonVariants = cva(
           "bg-tertiary text-tertiary-foreground hover:bg-tertiary-accent focus:bg-tertiary-accent",
         ghost: "hover:text-accent-foreground",
         link: "text-primary-foreground underline-offset-4 hover:underline",
-        card: "bg-card text-card-foreground hover: opacity-80",
+        accent: "bg-background text-foreground hover:bg-accent focus:bg-accent",
       },
       size: {
         default: "h-10 rounded-2xl px-4 py-2 ",
@@ -39,7 +39,7 @@ const buttonVariants = cva(
   },
 );
 
-const bubbleTriangleVariants = cva("", {
+const bubbleTriangleVariants = cva("transition-colors", {
   variants: {
     variant: {
       default:
@@ -49,10 +49,10 @@ const bubbleTriangleVariants = cva("", {
       secondary:
         "text-secondary group-hover:text-secondary-accent group-focus:text-secondary-accent",
       tertiary:
-        "text-tertiary group-hover:text-tertiary-accent, group-focus:text-tertiary-accent",
+        "text-tertiary group-hover:text-tertiary-accent group-focus:text-tertiary-accent",
       ghost: "text-primary",
       link: "text-primary",
-      card: "text-card",
+      accent: "text-background group-hover:text-accent group-focus:text-accent",
     },
   },
   defaultVariants: {
