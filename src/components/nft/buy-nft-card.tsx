@@ -77,6 +77,7 @@ const BuyNftCard = ({ nftInfo }: { nftInfo: NftInfo }) => {
           className={`${staatliches.className} w-full text-xl uppercase`}
           variant="secondary"
           nftId={nftInfo.id}
+          nftPrice={nftInfo.price}
         />
       </div>
     </div>

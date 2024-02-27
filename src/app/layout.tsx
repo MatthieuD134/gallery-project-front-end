@@ -6,6 +6,7 @@ import { cookieToInitialState } from "wagmi";
 
 import SharedLayout from "@/components/layout";
 import { ThemeProvider } from "@/components/theme-provider";
+import { Toaster } from "@/components/ui/toaster";
 import { wagmiConfig } from "@/config";
 import { ContextProvider } from "@/context";
 import { noto_sans } from "@/fonts";
@@ -36,6 +37,7 @@ export default function RootLayout({
               forcedTheme="light"
             >
               <SharedLayout>{children}</SharedLayout>
+              <Toaster />
             </ThemeProvider>
           </ContextProvider>
         </div>
