@@ -6,6 +6,7 @@ import { staatliches } from "@/fonts";
 
 import HamburgerMenu from "../icons/hamburger-menu";
 import ConnectButton from "../shared/connect-button";
+import TransactionNotifications from "../shared/transaction-notification";
 import { Button, LinkButton } from "../ui/button";
 import {
   Drawer,
@@ -34,10 +35,11 @@ const NavigationMenu = () => {
 
   return (
     <nav
-      className={`sticky top-0 z-20 float-left flex w-full flex-row justify-end gap-2 p-2 transition-all duration-500 ${
+      className={`sticky top-0 z-20 float-left flex w-full flex-row items-center justify-end gap-2 p-2 transition-all duration-500 ${
         isScrolled && "bg-primary"
       }`}
     >
+      <TransactionNotifications />
       <ConnectButton />
       <Drawer>
         <DrawerTrigger asChild>

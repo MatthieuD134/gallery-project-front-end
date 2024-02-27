@@ -5,6 +5,7 @@ import { headers } from "next/headers";
 import { cookieToInitialState } from "wagmi";
 
 import SharedLayout from "@/components/layout";
+import TransactionsWatcher from "@/components/shared/transactions-watcher";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
 import { wagmiConfig } from "@/config";
@@ -38,6 +39,7 @@ export default function RootLayout({
             >
               <SharedLayout>{children}</SharedLayout>
               <Toaster />
+              <TransactionsWatcher />
             </ThemeProvider>
           </ContextProvider>
         </div>

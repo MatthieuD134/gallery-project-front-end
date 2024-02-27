@@ -6,6 +6,7 @@ import { useAccount, useWriteContract } from "wagmi";
 import { GalleryNFT } from "@/abi";
 import { GALLERY_NFT_ADDRESS } from "@/constants";
 
+import { useAddMintTransaction } from "../atoms/mint-transactions";
 import { Button, ButtonProps } from "../ui/button";
 import { toast } from "../ui/use-toast";
 
@@ -16,7 +17,8 @@ const MintNFTButton = ({
 }: ButtonProps & { nftId: number; nftPrice: number }) => {
   const { address, isConnecting } = useAccount();
   const { open } = useWeb3Modal();
-  const { writeContract, isPending, error } = useWriteContract();
+  const { writeContract, isPending, error, data: txHash } = useWriteContract();
+  const addMintTransactionToWatcher = useAddMintTransaction();
 
   const buyNFT = useCallback(() => {
     writeContract({
@@ -39,12 +41,22 @@ const MintNFTButton = ({
           ? {}
           : {
               description:
-                "Il y a eu une erreur lors de l'achat de votre NFT, veuillez réessayer.",
+                "Il y a eu une erreur lors de l'achat de votre NFT, veuillez réessayer ou recharger la page.",
               variant: "destructive",
             }),
       });
     }
   }, [error]);
+
+  useEffect(() => {
+    if (txHash) {
+      addMintTransactionToWatcher({
+        hash: txHash,
+        nftId,
+        contractAddress: GALLERY_NFT_ADDRESS,
+      });
+    }
+  }, [txHash, addMintTransactionToWatcher, nftId]);
 
   return (
     <>
