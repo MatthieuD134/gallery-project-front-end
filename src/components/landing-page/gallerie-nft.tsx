@@ -44,7 +44,7 @@ export default function GalleryNFT() {
           <h2
             className={`${staatliches.className} text-balance text-6xl uppercase`}
           >
-            Gallery NFT
+            Galerie NFT
           </h2>
           <p className="my-8 text-lg">
             Bienvenue dans notre galerie NFT, où vous pouvez acheter des œuvres
