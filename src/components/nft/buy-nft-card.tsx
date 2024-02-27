@@ -5,6 +5,7 @@ import Image from "next/image";
 import { staatliches } from "@/fonts";
 import { NftInfo } from "@/interfaces";
 
+import MintNFTButton from "../shared/mint-nft-button";
 import { Button } from "../ui/button";
 import {
   HoverCard,
@@ -72,12 +73,11 @@ const BuyNftCard = ({ nftInfo }: { nftInfo: NftInfo }) => {
             </HoverCardContent>
           </HoverCard>
         </div>
-        <Button
+        <MintNFTButton
           className={`${staatliches.className} w-full text-xl uppercase`}
           variant="secondary"
-        >
-          Acheter
-        </Button>
+          nftId={nftInfo.id}
+        />
       </div>
     </div>
   );
