@@ -12,10 +12,13 @@ export const shadcnPlugin = plugin(
         "--popover": "0 0% 100%",
         "--popover-foreground": "210 39% 9%",
         "--primary": "210 39% 9%", // eslint-disable-line sonarjs/no-duplicate-string
+        "--primary-accent": "210 39% 19%",
         "--primary-foreground": "0 0% 100%", // eslint-disable-line sonarjs/no-duplicate-string
         "--secondary": "40 87% 82%", // eslint-disable-line sonarjs/no-duplicate-string
+        "--secondary-accent": "40 87% 72%",
         "--secondary-foreground": "210 39% 9%", // eslint-disable-line sonarjs/no-duplicate-string
         "--tertiary": "359 54% 43%",
+        "--tertiary-accent": "359 54% 53%",
         "--tertiary-foreground": "0 0% 100%",
         "--muted": "210 40% 96.1%",
         "--muted-foreground": "215.4 16.3% 46.9%",
@@ -36,10 +39,13 @@ export const shadcnPlugin = plugin(
         "--popover": "0 0% 100%",
         "--popover-foreground": "210 39% 9%",
         "--primary": "210 39% 9%", // eslint-disable-line sonarjs/no-duplicate-string
+        "--primary-accent": "210 39% 19%",
         "--primary-foreground": "0 0% 100%", // eslint-disable-line sonarjs/no-duplicate-string
         "--secondary": "40 87% 82%", // eslint-disable-line sonarjs/no-duplicate-string
+        "--secondary-accent": "40 87% 72%",
         "--secondary-foreground": "210 39% 9%", // eslint-disable-line sonarjs/no-duplicate-string
         "--tertiary": "359 54% 43%",
+        "--tertiary-accent": "359 54% 53%",
         "--tertiary-foreground": "0 0% 100%",
         "--muted": "210 40% 96.1%",
         "--muted-foreground": "215.4 16.3% 46.9%",
@@ -83,15 +89,23 @@ export const shadcnPlugin = plugin(
           foreground: "hsl(var(--foreground))",
           primary: {
             DEFAULT: "hsl(var(--primary))",
+            accent: "hsl(var(--primary-accent))",
             foreground: "hsl(var(--primary-foreground))",
           },
           secondary: {
             DEFAULT: "hsl(var(--secondary))",
+            accent: "hsl(var(--secondary-accent))",
             foreground: "hsl(var(--secondary-foreground))",
           },
           tertiary: {
             DEFAULT: "hsl(var(--tertiary))",
+            accent: "hsl(var(--tertiary-accent))",
             foreground: "hsl(var(--tertiary-foreground))",
+          },
+          light: {
+            DEFAULT: "hsl(var(--light))",
+            accent: "hsl(var(--light-accent))",
+            foreground: "hsl(var(--light-foreground))",
           },
           destructive: {
             DEFAULT: "hsl(var(--destructive))",

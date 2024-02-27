@@ -1,6 +1,8 @@
 import comicsIllustration from "@public/images/about-comics.png";
 import Image from "next/image";
 
+import { staatliches } from "@/fonts";
+
 import { BubbleButton } from "../ui/button";
 
 export default function Comics() {
@@ -14,7 +16,9 @@ export default function Comics() {
         </div>
         <div className="flex justify-start md:col-span-7">
           <div className="max-w-3xl p-2">
-            <h2 className="text-balance text-5xl uppercase">
+            <h2
+              className={`${staatliches.className} text-balance text-6xl uppercase`}
+            >
               Présentation des comics
             </h2>
             <p className="my-8 max-w-2xl text-lg">
@@ -31,7 +35,7 @@ export default function Comics() {
             </p>
             <div className="flex justify-end">
               <BubbleButton
-                className="mx-4 w-fit uppercase"
+                className={`${staatliches.className} mx-4 w-fit p-8 text-2xl uppercase`}
                 variant="tertiary"
                 invertBubbleTriangle
               >

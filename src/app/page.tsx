@@ -9,13 +9,13 @@ import HeroSection from "@/components/landing-page/hero-section";
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <>
       <HeroSection />
       <Comics />
       <BoardGames />
       <GalleryNFT />
       <Artist />
       <FAQ />
-    </main>
+    </>
   );
 }

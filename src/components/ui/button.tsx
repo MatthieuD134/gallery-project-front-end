@@ -1,5 +1,6 @@
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
+import Link, { LinkProps } from "next/link";
 import * as React from "react";
 
 import { cn } from "@/lib/utils";
@@ -11,16 +12,18 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:opacity-80",
+        default:
+          "bg-primary text-primary-foreground hover:bg-primary-accent focus:bg-primary-accent",
         destructive:
           "bg-destructive text-destructive-foreground hover:opacity-80",
-        outline:
-          "border border-input bg-background hover:bg-accent hover:opacity-80",
-        secondary: "bg-secondary text-secondary-foreground hover:opacity-80",
-        tertiary: "bg-tertiary text-tertiary-foreground hover:opacity-80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
-        card: "bg-card text-card-foreground hover: opacity-80",
+        outline: "border border-input bg-background hover:bg-accent",
+        secondary:
+          "bg-secondary text-secondary-foreground hover:bg-secondary-accent focus:bg-secondary-accent",
+        tertiary:
+          "bg-tertiary text-tertiary-foreground hover:bg-tertiary-accent focus:bg-tertiary-accent",
+        ghost: "hover:text-accent-foreground",
+        link: "text-primary-foreground underline-offset-4 hover:underline",
+        accent: "bg-background text-foreground hover:bg-accent focus:bg-accent",
       },
       size: {
         default: "h-10 rounded-2xl px-4 py-2 ",
@@ -36,17 +39,20 @@ const buttonVariants = cva(
   },
 );
 
-const bubbleTriangleVariants = cva("", {
+const bubbleTriangleVariants = cva("transition-colors", {
   variants: {
     variant: {
-      default: "text-primary",
+      default:
+        "text-primary group-hover:text-primary-accent group-focus:text-primary-accent",
       destructive: "text-destructive",
       outline: "text-background",
-      secondary: "text-secondary",
-      tertiary: "text-tertiary",
+      secondary:
+        "text-secondary group-hover:text-secondary-accent group-focus:text-secondary-accent",
+      tertiary:
+        "text-tertiary group-hover:text-tertiary-accent group-focus:text-tertiary-accent",
       ghost: "text-primary",
       link: "text-primary",
-      card: "text-card",
+      accent: "text-background group-hover:text-accent group-focus:text-accent",
     },
   },
   defaultVariants: {
@@ -58,6 +64,13 @@ export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean;
+}
+
+export interface LinkButtonProps
+  extends LinkProps,
+    VariantProps<typeof buttonVariants> {
+  className?: string;
+  children?: React.ReactNode;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -73,6 +86,22 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   },
 );
 Button.displayName = "Button";
+
+const LinkButton = ({
+  className,
+  variant,
+  size,
+  href,
+  ...props
+}: LinkButtonProps) => {
+  return (
+    <Link
+      className={cn(buttonVariants({ variant, size, className }))}
+      href={href}
+      {...props}
+    />
+  );
+};
 
 const BubbleButton = React.forwardRef<
   HTMLButtonElement,
@@ -92,7 +121,7 @@ const BubbleButton = React.forwardRef<
     return (
       <Button
         ref={ref}
-        className={cn({ relative: !hideBubbleTriangle }, className)}
+        className={cn({ relative: !hideBubbleTriangle }, "group", className)}
         variant={variant}
         {...props}
       >
@@ -115,4 +144,4 @@ const BubbleButton = React.forwardRef<
 );
 BubbleButton.displayName = "BubbleButton";
 
-export { BubbleButton, Button, buttonVariants };
+export { BubbleButton, Button, buttonVariants, LinkButton };
