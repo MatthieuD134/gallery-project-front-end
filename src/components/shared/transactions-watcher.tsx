@@ -1,10 +1,11 @@
 "use client";
 
 import { useEffect } from "react";
-import { useWaitForTransactionReceipt } from "wagmi";
+import { useAccount, useWaitForTransactionReceipt } from "wagmi";
 
 import {
   IMintTransaction,
+  useEmptyMintTransactions,
   useMintTransactions,
   useRemoveMintTransaction,
 } from "../atoms/mint-transactions";
@@ -12,17 +13,9 @@ import { toast } from "../ui/use-toast";
 
 const TransactionWatcher = ({ tx }: { tx: IMintTransaction }) => {
   const removeMintTransaction = useRemoveMintTransaction();
-  const {
-    isSuccess: isConfirmed,
-    isPending,
-    isError,
-  } = useWaitForTransactionReceipt({
+  const { isSuccess: isConfirmed, isError } = useWaitForTransactionReceipt({
     hash: tx.hash,
   });
-
-  console.log(`${tx.hash} isConfirmed: ${isConfirmed}`);
-  console.log(`${tx.hash} isPending: ${isPending}`);
-  console.log(`${tx.hash} isError: ${isError}`);
 
   useEffect(() => {
     if (isConfirmed || isError) {
@@ -38,7 +31,16 @@ const TransactionWatcher = ({ tx }: { tx: IMintTransaction }) => {
 };
 
 const TransactionsWatcher = () => {
+  const { isDisconnected } = useAccount();
   const transactions = useMintTransactions();
+  const emptyMintTransactions = useEmptyMintTransactions();
+
+  // remove all transactions from localStorage when account disconnects
+  useEffect(() => {
+    if (isDisconnected) {
+      emptyMintTransactions();
+    }
+  }, [isDisconnected, emptyMintTransactions]);
 
   return (
     <>
