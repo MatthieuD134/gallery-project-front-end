@@ -1,3 +1,7 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
 import { staatliches } from "@/fonts";
 
 import HamburgerMenu from "../icons/hamburger-menu";
@@ -11,8 +15,29 @@ import {
 } from "../ui/drawer";
 
 const NavigationMenu = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  const checkScroll = () => {
+    if (window.scrollY > 0) {
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", checkScroll);
+    return () => {
+      window.removeEventListener("scroll", checkScroll);
+    };
+  }, []);
+
   return (
-    <nav className="sticky top-2 z-20 float-left flex w-full flex-row justify-end gap-2">
+    <nav
+      className={`sticky top-0 z-20 float-left flex w-full flex-row justify-end gap-2 p-2 transition-all duration-500 ${
+        isScrolled && "bg-primary"
+      }`}
+    >
       <ConnectButton />
       <Drawer>
         <DrawerTrigger asChild>
