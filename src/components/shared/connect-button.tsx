@@ -1,11 +1,8 @@
-"use client";
-import { useQuery } from "@tanstack/react-query";
 import { useWeb3Modal } from "@web3modal/wagmi/react";
-import { OwnedNftsResponse } from "alchemy-sdk";
-import axios, { AxiosResponse } from "axios";
 import { Loader2, LogOut, WalletCards } from "lucide-react";
 import { useAccount, useBalance, useDisconnect, useEnsName } from "wagmi";
 
+import { useCurrentUserNFTs } from "@/services/queries";
 import { shortenAddress } from "@/utils";
 
 import { Button } from "../ui/button";
@@ -27,13 +24,7 @@ const ConnectButton = () => {
 
   const { open } = useWeb3Modal();
 
-  const { data: nftInventory, isFetching } = useQuery<
-    AxiosResponse<OwnedNftsResponse>
-  >({
-    queryKey: ["nfts", address],
-    queryFn: () => axios.get(`/api/user/${address}/nfts`),
-    enabled: !!address,
-  });
+  const { data: nftInventory, isFetching } = useCurrentUserNFTs();
 
   return (
     <>
