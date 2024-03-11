@@ -1,5 +1,6 @@
 "use client";
 
+import { useQueryClient } from "@tanstack/react-query";
 import { useEffect } from "react";
 import { useAccount, useWaitForTransactionReceipt } from "wagmi";
 
@@ -16,6 +17,7 @@ const TransactionWatcher = ({ tx }: { tx: IMintTransaction }) => {
   const { isSuccess: isConfirmed, isError } = useWaitForTransactionReceipt({
     hash: tx.hash,
   });
+  const queryClient = useQueryClient();
 
   useEffect(() => {
     if (isConfirmed || isError) {
@@ -24,7 +26,9 @@ const TransactionWatcher = ({ tx }: { tx: IMintTransaction }) => {
         description: `Vous venez d'acheter le modèle #${tx.nftId}, vous pouvez maintenant retrouver votre NFT dans votre portefeuille.`,
       });
       removeMintTransaction(tx.hash);
+      queryClient.invalidateQueries({ queryKey: ["nfts"] });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isConfirmed, isError, removeMintTransaction, tx]);
 
   return <></>;
