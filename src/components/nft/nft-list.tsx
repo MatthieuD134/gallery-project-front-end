@@ -18,7 +18,7 @@ const NftList = ({ nfts }: { nfts: OwnedNft[] }) => {
         >
           <ArrowLeft /> Retour
         </Button>
-        <div className="mt-4 flex flex-row justify-between gap-4">
+        <div className="mt-4 flex flex-row justify-between gap-4 md:mx-2">
           <div className="relative aspect-[3/4] w-1/3 flex-shrink-0 overflow-hidden">
             <Image
               src={selectedNFT.image.originalUrl || ""}
@@ -81,29 +81,32 @@ const NftList = ({ nfts }: { nfts: OwnedNft[] }) => {
   }
 
   return (
-    <div className="grid grid-cols-3 gap-4 gap-y-10 md:grid-cols-4 ">
-      {nfts.map((nft) => (
-        <button
-          key={nft.tokenId}
-          className="group"
-          onClick={() => setSelectedNFT(nft)}
-        >
-          <div className="relative aspect-[3/4] overflow-hidden">
-            <Image
-              className="transition-transform group-hover:scale-110 group-focus:scale-110"
-              src={nft.image.originalUrl || ""}
-              alt={`Illustration of the NFT ${nft.tokenId}`}
-              layout="fill"
-              style={{ objectFit: "cover" }}
-            />
-          </div>
-          <div className="mt-2">
-            <div className="text-xs opacity-20">#{nft.tokenId}</div>
-            <div className="line-clamp-2 text-sm">{nft.name}</div>
-          </div>
-        </button>
-      ))}
-    </div>
+    <>
+      <h5 className="mx-5 mb-4 text-gray-500">Mon inventaire</h5>
+      <div className="grid max-h-[75svh] grid-cols-3 gap-4 gap-y-10 overflow-y-scroll px-5 md:grid-cols-4">
+        {nfts.map((nft) => (
+          <button
+            key={nft.tokenId}
+            className="group"
+            onClick={() => setSelectedNFT(nft)}
+          >
+            <div className="relative aspect-[3/4] overflow-hidden">
+              <Image
+                className="transition-transform group-hover:scale-110 group-focus:scale-110"
+                src={nft.image.originalUrl || ""}
+                alt={`Illustration of the NFT ${nft.tokenId}`}
+                layout="fill"
+                style={{ objectFit: "cover" }}
+              />
+            </div>
+            <div className="mt-2">
+              <div className="text-xs opacity-20">#{nft.tokenId}</div>
+              <div className="line-clamp-2 text-sm">{nft.name}</div>
+            </div>
+          </button>
+        ))}
+      </div>
+    </>
   );
 };
 

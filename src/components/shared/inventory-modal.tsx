@@ -26,7 +26,7 @@ export const InventoryModal = () => {
         onOpenChange={(open) => (open ? openModal() : closeModal())}
       >
         <DialogContent className="w-3/4 max-w-4xl border-primary bg-primary px-2 text-primary-foreground">
-          <div className="mb-2 mt-5 max-h-[75svh] overflow-y-scroll px-5">
+          <div className="mb-2 mt-5">
             {isFetching && (
               <div>
                 <p className="w-full text-center opacity-20">
