@@ -25,8 +25,8 @@ export const InventoryModal = () => {
         open={isOpen}
         onOpenChange={(open) => (open ? openModal() : closeModal())}
       >
-        <DialogContent className="border-primary bg-primary text-primary-foreground">
-          <div className="mx-2 mt-5 max-h-[75svh] overflow-y-scroll">
+        <DialogContent className="w-3/4 max-w-4xl border-primary bg-primary px-2 text-primary-foreground">
+          <div className="mb-2 mt-5 max-h-[75svh] overflow-y-scroll px-5">
             {isFetching && (
               <div>
                 <p className="w-full text-center opacity-20">
@@ -49,8 +49,8 @@ export const InventoryModal = () => {
       open={isOpen}
       onOpenChange={(open) => (open ? openModal() : closeModal())}
     >
-      <DrawerContent className="border-primary bg-primary text-primary-foreground">
-        <div className="mx-2 mt-5 max-h-[60svh] overflow-y-scroll">
+      <DrawerContent className="border-primary bg-primary px-0 text-primary-foreground">
+        <div className="my-5 max-h-[60svh] overflow-y-scroll px-4">
           {isFetching && (
             <div>
               <p className="w-full text-center opacity-20">
