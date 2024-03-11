@@ -33,8 +33,5 @@ export async function GET(
     pageKey,
   });
 
-  return Response.json({
-    data,
-    status: 200,
-  });
+  return Response.json(data);
 }
