@@ -35,8 +35,6 @@ const ConnectButton = () => {
     enabled: !!address,
   });
 
-  console.log(nftInventory);
-
   return (
     <>
       {!address && (
