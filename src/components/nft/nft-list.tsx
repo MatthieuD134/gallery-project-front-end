@@ -24,7 +24,7 @@ const NftList = ({ nfts }: { nfts: OwnedNft[] }) => {
               src={selectedNFT.image.originalUrl || ""}
               alt={`Illustration of the NFT ${selectedNFT.tokenId}`}
               layout="fill"
-              style={{ objectFit: "cover" }}
+              style={{ objectFit: "contain" }}
             />
           </div>
           <div className="flex flex-col justify-between gap-2 text-sm md:gap-4">
@@ -100,8 +100,12 @@ const NftList = ({ nfts }: { nfts: OwnedNft[] }) => {
               />
             </div>
             <div className="mt-2">
-              <div className="text-xs opacity-20">#{nft.tokenId}</div>
-              <div className="line-clamp-2 text-sm">{nft.name}</div>
+              <div className="w-full text-left text-xs text-gray-500">
+                #{nft.tokenId}
+              </div>
+              <div className="line-clamp-2 w-full text-left text-sm">
+                {nft.name}
+              </div>
             </div>
           </button>
         ))}

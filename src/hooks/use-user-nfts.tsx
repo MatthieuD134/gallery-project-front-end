@@ -12,6 +12,7 @@ const useUserNFTs = (userId?: Address) => {
     queryKey: ["nfts", userId],
     queryFn: () => getUserNFTs(userId),
     enabled: !!userId,
+    refetchOnWindowFocus: false,
   });
 };
 
