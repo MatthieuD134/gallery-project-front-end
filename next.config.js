@@ -4,6 +4,14 @@ const nextConfig = {
     config.externals.push("pino-pretty", "lokijs", "encoding");
     return config;
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "ipfs.io",
+      }, // ipfs
+    ],
+  },
 };
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires

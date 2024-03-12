@@ -2,9 +2,10 @@ import { useWeb3Modal } from "@web3modal/wagmi/react";
 import { Loader2, LogOut, WalletCards } from "lucide-react";
 import { useAccount, useBalance, useDisconnect, useEnsName } from "wagmi";
 
-import { useCurrentUserNFTs } from "@/services/queries";
+import useCurrentUserNFTs from "@/hooks/use-current-user-nfts";
 import { shortenAddress } from "@/utils";
 
+import { useOpenInventoryModal } from "../atoms/open-inventory-modal.atom";
 import { Button } from "../ui/button";
 import {
   DropdownMenu,
@@ -25,6 +26,8 @@ const ConnectButton = () => {
   const { open } = useWeb3Modal();
 
   const { data: nftInventory, isFetching } = useCurrentUserNFTs();
+
+  const { open: openModal } = useOpenInventoryModal();
 
   return (
     <>
@@ -72,6 +75,7 @@ const ConnectButton = () => {
           <Button
             variant="ghost"
             className="relative flex justify-center gap-1 border-2 border-solid border-transparent p-2 align-middle text-white hover:border-white hover:text-white focus:border-white focus:text-white"
+            onClick={() => openModal()}
           >
             {isFetching ? (
               <Loader2 size={16} className="animate-spin" />
