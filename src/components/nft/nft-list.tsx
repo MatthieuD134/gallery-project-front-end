@@ -3,11 +3,17 @@ import { ArrowLeft } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 
+import { GALLERY_NFT_ADDRESS } from "@/constants";
+import useDarkblockInfo from "@/hooks/use-darkblock-info";
+import useSignDarkblockAccessAuth from "@/hooks/use-sign-darkblock-access-auth";
+
 import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
 
 const NftList = ({ nfts }: { nfts: OwnedNft[] }) => {
   const [selectedNFT, setSelectedNFT] = useState<OwnedNft | null>(null);
+  const { signMessage, isPending } = useSignDarkblockAccessAuth();
+  const {} = useDarkblockInfo(GALLERY_NFT_ADDRESS, selectedNFT?.tokenId);
 
   if (selectedNFT) {
     return (
@@ -65,7 +71,13 @@ const NftList = ({ nfts }: { nfts: OwnedNft[] }) => {
               </div>
             </div>
 
-            <Button variant="tertiary">Lire le comic</Button>
+            <Button
+              variant="tertiary"
+              onClick={() => signMessage()}
+              disabled={isPending}
+            >
+              {isPending ? "En train de signer le message..." : "Lire le comic"}
+            </Button>
           </div>
         </div>
       </div>
