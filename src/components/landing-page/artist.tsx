@@ -8,8 +8,8 @@ import { BubbleButton } from "../ui/button";
 export default function Artist() {
   return (
     <section id="artist">
-      <div className="relative h-80 bg-tertiary">
-        <div className="absolute bottom-0 left-0 right-0 top-0 bg-transition-paint-white bg-contain bg-left-bottom bg-repeat-x" />
+      <div className="relative h-40 bg-tertiary">
+        <div className="absolute bottom-0 left-0 right-0 top-0 bg-transition-spray-white bg-contain bg-left-bottom bg-repeat-x" />
       </div>
       <div className="grid grid-cols-1 items-center bg-background text-foreground md:grid-cols-12 md:py-20">
         <div className="flex justify-start md:col-span-5 md:justify-end">
@@ -50,8 +50,8 @@ export default function Artist() {
           </div>
         </div>
       </div>
-      <div className="relative h-80 bg-primary">
-        <div className="absolute bottom-0 left-0 right-0 top-0 bg-transition-paint-white-inverted bg-contain bg-left-top bg-repeat-x" />
+      <div className="relative h-40 bg-primary">
+        <div className="absolute bottom-0 left-0 right-0 top-0 bg-transition-spray-white-inverted bg-contain bg-left-top bg-repeat-x" />
       </div>
     </section>
   );

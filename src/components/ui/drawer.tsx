@@ -51,7 +51,7 @@ const DrawerContent = React.forwardRef<
       {...props}
     >
       {showTransition ? (
-        <div className="absolute -top-60 left-0 right-0 h-80 bg-transition-ink-black bg-contain bg-left-bottom bg-repeat-x">
+        <div className="absolute -top-60 left-0 right-0 h-40 bg-transition-ink-black bg-contain bg-left-bottom bg-repeat-x">
           <div className="mx-auto mt-48 h-2 w-[100px] rounded-full bg-muted" />
         </div>
       ) : (

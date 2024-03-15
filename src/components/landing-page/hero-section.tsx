@@ -151,7 +151,7 @@ export default function HeroSection() {
               />
             </div>
           </div>
-          <div className="absolute bottom-[20svh] left-0 right-0 h-96 bg-transition-ink-black bg-contain bg-left-bottom bg-repeat-x md:bottom-0" />
+          <div className="absolute bottom-[20svh] left-0 right-0 h-40 bg-transition-ink-black bg-contain bg-left-bottom bg-repeat-x md:bottom-0" />
 
           <div className="mx-auto flex w-full max-w-3xl flex-col p-2">
             <div
@@ -192,7 +192,7 @@ export default function HeroSection() {
           </div>
         </div>
       </div>
-      <div className="relative h-80 bg-background">
+      <div className="relative h-40 bg-background">
         <div className="absolute bottom-0 left-0 right-0 top-0 bg-transition-ink-black-inverted bg-contain bg-left-top bg-repeat-x" />
       </div>
     </section>

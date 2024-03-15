@@ -8,8 +8,8 @@ import { Button, LinkButton } from "../ui/button";
 const Footer = () => {
   return (
     <footer className="relative overflow-hidden">
-      <div className="relative h-80 bg-primary">
-        <div className="absolute -bottom-1 left-0 right-0 top-0 bg-transition-paint-white bg-contain bg-left-bottom bg-repeat-x" />
+      <div className="relative h-40 bg-primary">
+        <div className="absolute -bottom-1 left-0 right-0 top-0 bg-transition-spray-white bg-contain bg-left-bottom bg-repeat-x" />
       </div>
       <div className="bg-background">
         <div className="z-10 mx-4 my-4 flex max-w-4xl flex-col items-center justify-between gap-8 bg-background pb-20 md:mx-auto md:flex-row">
