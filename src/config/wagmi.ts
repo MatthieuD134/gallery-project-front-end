@@ -1,5 +1,5 @@
 import { cookieStorage, createConfig, createStorage, http } from "wagmi";
-import { mainnet, sepolia } from "wagmi/chains";
+import { polygon, polygonMumbai } from "wagmi/chains";
 import { coinbaseWallet, injected, walletConnect } from "wagmi/connectors";
 
 // Get projectId at https://cloud.walletconnect.com
@@ -14,11 +14,10 @@ const metadata = {
   icons: ["https://avatars.githubusercontent.com/u/37784886"],
 };
 
-export const mainnetConfig = createConfig({
-  chains: [mainnet, sepolia],
+export const polygonConfig = createConfig({
+  chains: [polygon],
   transports: {
-    [mainnet.id]: http(),
-    [sepolia.id]: http(),
+    [polygon.id]: http(),
   },
   connectors: [
     walletConnect({ projectId, metadata, showQrModal: false }),
@@ -34,10 +33,10 @@ export const mainnetConfig = createConfig({
   }),
 });
 
-export const sepoliaConfig = createConfig({
-  chains: [sepolia],
+export const polygonMumbaiConfig = createConfig({
+  chains: [polygonMumbai],
   transports: {
-    [sepolia.id]: http(),
+    [polygonMumbai.id]: http(),
   },
   connectors: [
     walletConnect({ projectId, metadata, showQrModal: false }),
@@ -54,6 +53,6 @@ export const sepoliaConfig = createConfig({
 });
 
 export const wagmiConfig =
-  process.env.NEXT_PUBLIC_CHAIN_ID === "mainnet"
-    ? mainnetConfig
-    : sepoliaConfig;
+  process.env.NEXT_PUBLIC_CHAIN_ID === "polygon"
+    ? polygonConfig
+    : polygonMumbaiConfig;

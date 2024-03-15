@@ -4,7 +4,7 @@ import { Network } from "alchemy-sdk";
 export const alchemySettings = {
   apiKey: process.env.ALCHEMY_API_KEY,
   network:
-    process.env.NEXT_PUBLIC_CHAIN_ID === "mainnet"
-      ? Network.ETH_MAINNET
-      : Network.ETH_SEPOLIA,
+    process.env.NEXT_PUBLIC_CHAIN_ID === "polygon"
+      ? Network.MATIC_MAINNET
+      : Network.MATIC_MUMBAI,
 };

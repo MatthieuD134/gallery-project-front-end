@@ -8,8 +8,8 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "ipfs.io",
-      }, // ipfs
+        hostname: "arweave.net",
+      },
     ],
   },
 };
