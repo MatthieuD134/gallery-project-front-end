@@ -1,3 +1,4 @@
+import { DropdownMenuItem } from "@radix-ui/react-dropdown-menu";
 import { OwnedNft } from "alchemy-sdk";
 import {
   ArrowLeft,
@@ -14,8 +15,9 @@ import { useAccount } from "wagmi";
 
 import { GALLERY_NFT_ADDRESS } from "@/constants";
 import useDarkblockInfo from "@/hooks/use-darkblock-info";
+import useDarkblockProxy from "@/hooks/use-darkblock-proxy";
 import useSignDarkblockAccessAuth from "@/hooks/use-sign-darkblock-access-auth";
-import { getDarkblockProxy } from "@/services/queries";
+import { IDarkblockInfo } from "@/services/queries";
 import formatBytes from "@/utils/format-bytes";
 
 import { Badge } from "../ui/badge";
@@ -27,6 +29,99 @@ import {
 } from "../ui/dropdown-menu";
 import { Skeleton } from "../ui/skeleton";
 
+const UnlockableRow = ({
+  nft,
+  dbstack,
+  sessionToken,
+}: {
+  nft: OwnedNft;
+  dbstack: IDarkblockInfo;
+  sessionToken?: string;
+}) => {
+  const { address } = useAccount();
+  const { data: proxyData } = useDarkblockProxy(
+    dbstack?.tags.find((tag) => tag.name === "ArtId")?.value,
+    sessionToken,
+    nft.tokenId,
+    GALLERY_NFT_ADDRESS,
+    address,
+  );
+
+  const handleDownload = () => {
+    if (proxyData) {
+      const blob = new Blob([proxyData.data], {
+        type: dbstack.data.type,
+      });
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download =
+        dbstack.tags.find((tag) => tag.name === "Name")?.value || "contenu";
+
+      document.body.appendChild(link);
+
+      link.click();
+
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+    }
+  };
+
+  return (
+    <tr key={dbstack.id} className="border-b border-t border-gray-500">
+      <td className="w-9/12 py-2">
+        <Button
+          className="flex flex-row items-center gap-2"
+          onClick={() => {
+            console.log("click");
+          }}
+        >
+          <BookText size={16} />
+          {dbstack.tags.find((tag) => tag.name === "Name")?.value}
+        </Button>
+      </td>
+      <td className="w-2/12 py-2">
+        <div className="flex flex-row items-center justify-end text-xs">
+          {formatBytes(dbstack.data.size)}
+        </div>
+      </td>
+      <td className="w-1/12 py-2">
+        <div className="flex flex-row items-center justify-end">
+          <DropdownMenu>
+            <DropdownMenuTrigger>
+              <EllipsisVertical />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="w-56 border-primary bg-primary text-primary-foreground">
+              <DropdownMenuItem>
+                <Button className="flex w-full flex-row items-center justify-start gap-2">
+                  <Info size={16} />
+                  <span>Details</span>
+                </Button>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <Button
+                  disabled={!proxyData}
+                  className="flex w-full flex-row items-center justify-start gap-2"
+                  onClick={() => {
+                    handleDownload();
+                  }}
+                >
+                  {!proxyData ? (
+                    <Loader2 size={16} className="animate-spin" />
+                  ) : (
+                    <Download size={16} />
+                  )}
+                  <span>Télécharger</span>
+                </Button>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
+      </td>
+    </tr>
+  );
+};
+
 const NftDetails = ({
   nft,
   onClose,
@@ -34,34 +129,24 @@ const NftDetails = ({
   nft: OwnedNft;
   onClose: () => void;
 }) => {
-  const { address } = useAccount();
   const [sessionToken, setSessionToken] = useState<string | undefined>(
     undefined,
   );
   const {
     data: signature,
     epoch,
-    platform,
     signMessage,
     isPending: isSigningMessage,
   } = useSignDarkblockAccessAuth();
   const { data: darkblockInfo, isLoading: isFetchingDarkblockInfo } =
     useDarkblockInfo(GALLERY_NFT_ADDRESS, nft.tokenId);
-  //   const {} = useDarkblockProxy(
-  //     darkblockInfo?.data.dbstack?.[0]?.tags.find((tag) => tag.name === "ArtId")
-  //       ?.value,
-  //     sessionToken,
-  //     nft.tokenId,
-  //     GALLERY_NFT_ADDRESS,
-  //     address,
-  //   );
 
   // Set the session Token whenever the darkblock info is fetched and the signature is available
   useEffect(() => {
-    if (darkblockInfo && signature && epoch) {
+    if (signature && epoch) {
       setSessionToken(`${epoch}_${signature}`);
     }
-  }, [darkblockInfo, signature, epoch, platform]);
+  }, [signature, epoch]);
 
   return (
     <div>
@@ -144,56 +229,12 @@ const NftDetails = ({
                     </>
                   )}
                   {darkblockInfo?.data.dbstack.map((dbstack) => (
-                    <tr
+                    <UnlockableRow
                       key={dbstack.id}
-                      className="border-b border-t border-gray-500"
-                    >
-                      <td className="w-9/12 py-2">
-                        <div className="flex flex-row items-center gap-2">
-                          <BookText size={16} />
-                          {
-                            dbstack.tags.find((tag) => tag.name === "Name")
-                              ?.value
-                          }
-                        </div>
-                      </td>
-                      <td className="w-2/12 py-2">
-                        <div className="flex flex-row items-center justify-end text-xs">
-                          {formatBytes(dbstack.data.size)}
-                        </div>
-                      </td>
-                      <td className="w-1/12 py-2">
-                        <div className="flex flex-row items-center justify-end">
-                          <DropdownMenu>
-                            <DropdownMenuTrigger>
-                              <EllipsisVertical />
-                            </DropdownMenuTrigger>
-                            <DropdownMenuContent className="w-56 border-primary bg-primary text-primary-foreground">
-                              <Button className="flex w-full flex-row items-center justify-start gap-2">
-                                <Info size={16} />
-                                <span>Details</span>
-                              </Button>
-                              <Button
-                                className="flex w-full flex-row items-center justify-start gap-2"
-                                onClick={() =>
-                                  getDarkblockProxy(
-                                    dbstack.tags.find((t) => t.name === "ArtId")
-                                      ?.value,
-                                    sessionToken,
-                                    nft.tokenId,
-                                    GALLERY_NFT_ADDRESS,
-                                    address,
-                                  )
-                                }
-                              >
-                                <Download size={16} />
-                                <span>Télécharger</span>
-                              </Button>
-                            </DropdownMenuContent>
-                          </DropdownMenu>
-                        </div>
-                      </td>
-                    </tr>
+                      nft={nft}
+                      dbstack={dbstack}
+                      sessionToken={sessionToken}
+                    />
                   ))}
                 </tbody>
               </table>

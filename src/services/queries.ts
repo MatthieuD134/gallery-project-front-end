@@ -13,7 +13,7 @@ export const getUserNFTs = async (
   });
 };
 
-interface IDarkblockInfo {
+export interface IDarkblockInfo {
   id: string;
   block: {
     id: string;
@@ -61,8 +61,8 @@ export const getDarkblockProxy = async (
   tokenId?: string,
   contractAddress?: Address,
   ownerAddress?: Address,
-) => {
-  return axios.get("https://gateway.darkblock.io/proxy", {
+): Promise<AxiosResponse> => {
+  return await axios.get("https://gateway.darkblock.io/proxy", {
     params: {
       artid: artId,
       session_token: sessionToken,

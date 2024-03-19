@@ -16,6 +16,7 @@
     "clsx",
     "darkblock",
     "Darkblock",
+    "dbstack",
     "ethereum",
     "komika",
     "lucide",
@@ -28,6 +29,7 @@
     "staatliches",
     "stylelint",
     "tailwindcss",
+    "Unlockable",
     "wagmi"
   ]
 }
