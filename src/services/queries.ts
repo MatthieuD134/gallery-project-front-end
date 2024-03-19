@@ -54,3 +54,25 @@ export const getDarkblockInfo = async (
     },
   });
 };
+
+export const getDarkblockProxy = async (
+  artId?: string,
+  sessionToken?: string,
+  tokenId?: string,
+  contractAddress?: Address,
+  ownerAddress?: Address,
+) => {
+  return axios.get("https://gateway.darkblock.io/proxy", {
+    params: {
+      artid: artId,
+      session_token: sessionToken,
+      token_id: tokenId,
+      contract: contractAddress,
+      platform:
+        process.env.NEXT_PUBLIC_CHAIN_ID === "polygon"
+          ? "Polygon"
+          : "Polygon-Mumbai",
+      owner: ownerAddress,
+    },
+  });
+};
