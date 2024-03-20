@@ -74,5 +74,6 @@ export const getDarkblockProxy = async (
           : "Polygon-Mumbai",
       owner: ownerAddress,
     },
+    responseType: "blob",
   });
 };

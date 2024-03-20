@@ -1,5 +1,6 @@
 import { DropdownMenuItem } from "@radix-ui/react-dropdown-menu";
 import { OwnedNft } from "alchemy-sdk";
+import fileDownload from "js-file-download";
 import {
   ArrowLeft,
   BookText,
@@ -49,21 +50,10 @@ const UnlockableRow = ({
 
   const handleDownload = () => {
     if (proxyData) {
-      const blob = new Blob([proxyData.data], {
-        type: dbstack.data.type,
-      });
-      const url = window.URL.createObjectURL(blob);
-      const link = document.createElement("a");
-      link.href = url;
-      link.download =
-        dbstack.tags.find((tag) => tag.name === "Name")?.value || "contenu";
-
-      document.body.appendChild(link);
-
-      link.click();
-
-      document.body.removeChild(link);
-      window.URL.revokeObjectURL(url);
+      fileDownload(
+        proxyData.data,
+        dbstack.tags.find((tag) => tag.name === "Name")?.value || "contenu",
+      );
     }
   };
 

@@ -7094,6 +7094,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"js-file-download@npm:^0.4.12":
+  version: 0.4.12
+  resolution: "js-file-download@npm:0.4.12"
+  checksum: 10c0/3caec1491fa744214409e0bcb1fb18d76e3d56715c477ee033cb7d8becb5cf777803409dc1995c913bf1a2270dac98d78f07d83bba319b8e800bc7bf2a7266a7
+  languageName: node
+  linkType: hard
+
 "js-sha3@npm:0.8.0":
   version: 0.8.0
   resolution: "js-sha3@npm:0.8.0"
@@ -8014,6 +8021,7 @@ __metadata:
     eslint-plugin-sonarjs: "npm:^0.21.0"
     husky: "npm:^8.0.3"
     jotai: "npm:^2.6.5"
+    js-file-download: "npm:^0.4.12"
     lint-staged: "npm:^14.0.1"
     lucide-react: "npm:^0.359.0"
     next: "npm:13.4.19"
